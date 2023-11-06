@@ -118,7 +118,31 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                     <GoVideo size={30} className="text-mattewhite" />
                     </button>                  
                 </div>
-                <div className="text-mattewhite">Search</div>
+                <div className="
+                        flex
+                        w-[1160px]
+                        bg-[#1a1a1a]
+                        border-none
+                        rounded-full
+                        overflow-hidden
+                        border-2                        
+                        p-3
+                        pl-6
+                        ">
+                    <input
+                        type="text"       
+                        className="
+                            bg-[#1a1a1a]
+                              text-white
+                              border-none
+                              lg:w-full
+                              focus:ring-0
+                              outline-none
+                              placeholder-[#fafafa]
+                              text-xs"
+                        placeholder="Search something..."
+                    />
+                </div>         
                 <div className="
                         text-mattewhite
                         flex
