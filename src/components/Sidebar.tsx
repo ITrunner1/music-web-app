@@ -1,13 +1,13 @@
 "use client"
 import Image from "next/image";
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import {    
   ChartBarIcon,
   HomeIcon,
 } from "@heroicons/react/24/solid";
 import { FaMicrophoneAlt } from "react-icons/fa";
-import { RiCompassFill } from "react-icons/ri"; 
-import { TbArrowBackUp } from "react-icons/tb";
+import { BsCompassFill } from "react-icons/bs"; 
+import { HiOutlineArrowSmallLeft, HiOutlineArrowSmallRight } from "react-icons/hi2";
 import { BiSolidPlaylist } from "react-icons/bi"
 import { GoVideo } from "react-icons/go"
 import { useMemo } from "react";
@@ -18,10 +18,14 @@ import Rightside from "./Rightside";
 
 interface SidebarProps { 
     children: React.ReactNode;
-    active?: boolean;
+    active?: boolean;    
 }
 
 const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
+    const router = useRouter();
+    const handleLogout = () => {
+        // Handle Logout in the future
+    }
     const pathname = usePathname();
     const routes = useMemo(() => [
         {
@@ -31,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
             href: '/home',
         },
         {
-            icon: RiCompassFill,
+            icon: BsCompassFill,
             label: 'Search',
             active: pathname === '/search',
             href: '/search',
@@ -61,13 +65,18 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
             href: '/videos',
         },
         {
-            icon: TbArrowBackUp,
-            label: 'Back',
-            active: pathname === '/back',
-            href: '/back',
+            icon: HiOutlineArrowSmallRight,
+            label: 'Forward',  
+            href: '/forward',         
+            onclick: router.forward()
+        }, 
+        {
+            icon: HiOutlineArrowSmallLeft,
+            label: 'Back',  
+            href: '/',
         },
-    ], [pathname]);       
-      
+              
+    ], [pathname]);  
  
   return (
     <div className="
@@ -75,10 +84,11 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
         h-full
         "
     >
-    <div className="                
+    <div className="
+                hidden
+                md:flex                
                 top-0
-                z-40
-                flex
+                z-40                
                 flex-col
                 p-4
                 items-center

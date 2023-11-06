@@ -45,8 +45,8 @@ const Library = () => {
             <hr className="
                     w-full
                     h-1 
-                    text-[#ed8927]
-                    bg-[#ed8927]
+                    text-lightcarrot
+                    bg-lightcarrot
                     border-1
                     mt-4                                       
                     ">                    

@@ -26,12 +26,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ icon: Icon, active, href}) =>
                 h-auto
                 items-center
                 w-[30px]      
-                hover:text-[#ed8927]
-                text-[#F2F3F4]
+                hover:text-lightcarrot
+                text-mattewhite
                 transition                
                 py-4       
             `,
-                active && "text-[#ed8927]"
+                active && "text-lightcarrot"
             )}
         >
             <Icon size={26}/>          

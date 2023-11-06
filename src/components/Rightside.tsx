@@ -23,15 +23,16 @@ interface SidebarProps {
 const Rightside = () => {
       
   return (
-    <section className="                
+    <div className=" 
+                hidden
+                md:flex                
                 top-0
                 right-0
-                z-40
-                flex
+                z-40                
                 flex-col
                 pt-4
                 pl-4
-                text-[#F2F3F4]         
+                text-mattewhite        
                 bg-darkgray
                 w-[400px]
                 h-screen
@@ -42,7 +43,7 @@ const Rightside = () => {
             <Library />            
           </Box>       
       </div>      
-    </section>
+    </div>
   );
 }
 

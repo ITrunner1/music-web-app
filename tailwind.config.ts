@@ -8,12 +8,14 @@ const config: Config = {
   ],
   theme: {
     colors: {
+      black: "#000000",
       gray: "#808080",
       darkgray: "#1d1e24",
       blakishgray: "#1e2027",
       blackgray: "#242730",
       bluishblack: "#17181c",
       mattewhite: "#F2F3F4",
+      lightcarrot: "#FF6600",
     },
     extend: {},
   },
