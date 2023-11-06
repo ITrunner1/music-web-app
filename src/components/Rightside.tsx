@@ -11,6 +11,7 @@ import { RiCompassFill } from "react-icons/ri";
 import { TbArrowBackUp } from "react-icons/tb";
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
+import Library from "./Library";
 import Box from "./Box";
 
 
@@ -19,48 +20,30 @@ interface SidebarProps {
     active?: boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({}) => {
-     
- 
+const Rightside = () => {
+      
   return (
-    <section className="
-                fixed
+    <section className="                
                 top-0
                 right-0
                 z-40
                 flex
                 flex-col
-                p-4
-                items-center
+                pt-4
+                pl-4
+                text-[#F2F3F4]         
                 bg-darkgray
                 w-[400px]
                 h-screen
                 space-y-8
-                "
-                >
-                    
-        <Image
-        alt="image"
-        src="https://i.ibb.co/jrSj99T/evilneurosama2.webp"
-        width={56}
-        height={56}
-        objectFit="contain"
-      />
-      <hr className="w-14 h-1 bg-blackgray border-0 rounded"></hr>
-      <div className="
-                flex
-                flex-col
-                pt-10
-                space-y-20
-                "
-                >
-                    <Box className="overflow-y-auto h-full">
-                       
-                    </Box>       
-      </div>
-      
+                ">      
+      <div className="">
+          <Box className="overflow-y-auto h-full">
+            <Library />            
+          </Box>       
+      </div>      
     </section>
   );
 }
 
-export default Sidebar;
+export default Rightside;

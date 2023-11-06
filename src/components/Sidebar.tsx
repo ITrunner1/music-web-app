@@ -13,6 +13,7 @@ import { GoVideo } from "react-icons/go"
 import { useMemo } from "react";
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
+import Rightside from "./Rightside";
 
 
 interface SidebarProps { 
@@ -69,8 +70,12 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
       
  
   return (
-    <section className="                
-                fixed
+    <div className="
+        flex
+        h-full
+        "
+    >
+    <div className="                
                 top-0
                 z-40
                 flex
@@ -79,7 +84,7 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
                 items-center
                 bg-darkgray
                 w-[90px]
-                h-screen
+                h-fill
                 space-y-8"
                 >
                     
@@ -90,7 +95,12 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
         height={56}
         objectFit="contain"
       />
-      <hr className="w-14 h-1 bg-blackgray border-0 rounded"></hr>
+      <hr className="w-14
+                    h-1
+                    bg-blackgray
+                    border-0 
+                    rounded">
+      </hr>
       <div className="">
             <Box>
                 <div className="
@@ -107,11 +117,13 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
                             ))}
                 </div>
             </Box> 
-      </div>
-      <main className="h-full flex-1 overflow-y-auto py-2">
+      </div>      
+    </div>    
+    <main className="h-full flex-1 overflow-y-auto py-0">
         {children}
-      </main>
-    </section>
+    </main>
+    <Rightside />
+    </div>
   );
 }
 

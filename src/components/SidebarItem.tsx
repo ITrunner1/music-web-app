@@ -27,7 +27,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ icon: Icon, active, href}) =>
                 items-center
                 w-[30px]      
                 hover:text-[#ed8927]
-                text-[#494a4d]
+                text-[#F2F3F4]
                 transition                
                 py-4       
             `,
