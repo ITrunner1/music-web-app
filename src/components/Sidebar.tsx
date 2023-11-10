@@ -100,7 +100,7 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
                     
         <Image
         alt="image"
-        src="https://i.ibb.co/jrSj99T/evilneurosama2.webp"
+        src="https://i.ibb.co/HT7r6cv/harmonyhub-favicon-color.png"
         width={56}
         height={56}
         objectFit="contain"
