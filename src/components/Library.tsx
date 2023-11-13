@@ -1,11 +1,12 @@
 'use client'
+
 import { RiPlayListFill } from "react-icons/ri";
 import { AiOutlinePlus } from "react-icons/ai"
 
 const Library = () => { 
     const onClick = () => {
         // Handle upload later
-    }
+    }   
 
     return ( 
         <div className="flex flex-col">
@@ -22,7 +23,7 @@ const Library = () => {
                             gap-x-6
                             pr-36
                             ">
-                            <RiPlayListFill size={46}/>
+                            <RiPlayListFill size={46}/>                            
                             <p className="                                    
                                     font-medium
                                     text-md

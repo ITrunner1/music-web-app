@@ -1,14 +1,16 @@
+'use client'
+
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
-export default function Home() {
+export default function Home() {  
   return (
     <main className="
             min-h-screen
             min-w-max
             bg-blakishgray
-    ">   
-      <Header>
+    ">         
+      <Header>                   
         <div className="mb-2">
           <h1 className="
             text-mattewhite
@@ -31,9 +33,9 @@ export default function Home() {
               name="Liked Songs"
               href='liked'
             />
-          </div>
-        </div>
-      </Header>  
+          </div>          
+        </div>        
+      </Header>
       <div className="mt-2 mb-7 px-6">
         <div className="flex justify-between items-center">
           <h1 className="text-mattewhite text-2xl font-semibold">
@@ -43,7 +45,7 @@ export default function Home() {
         <div className="text-mattewhite">
           List of Songs
         </div>
-      </div> 
+      </div>             
     </main>
   )
 }

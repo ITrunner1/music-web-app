@@ -1,27 +1,40 @@
 "use client"
-import Image from "next/image";
+
 import { usePathname, useRouter } from 'next/navigation'
 import {    
   ChartBarIcon,
   HomeIcon,
 } from "@heroicons/react/24/solid";
+import { 
+    HiOutlineArrowSmallLeft,
+    HiOutlineArrowSmallRight 
+} from "react-icons/hi2";
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { BsCompassFill } from "react-icons/bs"; 
-import { HiOutlineArrowSmallLeft, HiOutlineArrowSmallRight } from "react-icons/hi2";
 import { BiSolidPlaylist } from "react-icons/bi"
 import { GoVideo } from "react-icons/go"
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Rightside from "./Rightside";
-
+import Maincontent from './Maincontent';
 
 interface SidebarProps { 
     children: React.ReactNode;
     active?: boolean;    
 }
 
-const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
+const Sidebar: React.FC<SidebarProps> = ({ children, active }) => {
+    const [isLibraryOpen, setIsLibraryOpen] = useState(false);
+    const closeLibrary = () => {
+        setIsLibraryOpen(false);        
+    };  
+    const openLibrary = () => {
+        setIsLibraryOpen(true);        
+    };      
     const router = useRouter();
     const handleLogout = () => {
         // Handle Logout in the future
@@ -32,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
             icon: HomeIcon,
             label: 'Home',
             active: pathname === '/home',
-            href: '/home',
+            href: '/home',            
         },
         {
             icon: BsCompassFill,
@@ -60,7 +73,7 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
         },               
         {
             icon: GoVideo,
-            label: 'videos',
+            label: 'Videos',
             active: pathname === '/videos',
             href: '/videos',
         },
@@ -76,10 +89,11 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
             href: '/',
         },
               
-    ], [pathname]);  
- 
+    ], [pathname]); 
+
   return (
-    <div className="
+    <div 
+    className="
         flex
         h-full
         "
@@ -113,26 +127,31 @@ const Sidebar: React.FC<SidebarProps> = ({children, active}) => {
       </hr>
       <div className="">
             <Box>
-                <div className="
+                <div                    
+                    className="
                             flex
                             flex-col
                             gap-y-4
                             px-5
                             py-4 
                         ">                    
-                            {routes.map((item) => (
-                                <SidebarItem 
+                            {routes.map((item) => (                               
+                                <SidebarItem                                     
                                     key={item.label}
                                     {...item} />
                             ))}
                 </div>
+                {isLibraryOpen ? ( <button onClick={closeLibrary}>CLOSE LIBRARY</button> ) :   
+                ( <button onClick={openLibrary}>OPEN LIBRARY</button> )}
             </Box> 
       </div>      
     </div>    
-    <main className="h-full flex-1 overflow-y-auto py-0">
-        {children}
-    </main>
-    <Rightside />
+    <Maincontent setIsLibraryOpen={setIsLibraryOpen}>
+        {children}        
+    </Maincontent>  
+        <AnimatePresence>
+            {isLibraryOpen && (<Rightside />)}         
+        </AnimatePresence>              
     </div>
   );
 }

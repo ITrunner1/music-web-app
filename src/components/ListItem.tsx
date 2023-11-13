@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { BiPlay } from "react-icons/bi"
-import Image from "next/image";
+import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 
 interface ListItemProps {
     image: string;
@@ -39,8 +39,8 @@ const ListItem: React.FC<ListItemProps> = ({ image, name, href }) => {
                     min-w-[64px]
             ">
                 <Image
-                    className="object-cover"
-                    fill
+                    width={60}
+                    className="object-cover"                    
                     src={image}
                     alt="Image"
                 />                
