@@ -28,7 +28,8 @@ export default function RootLayout({
       <body className={inter.className}> 
         <SupabaseProvider>          
           <UserProvider>
-            <NextUIProv>              
+            <NextUIProv> 
+              <ModalProvider />             
               <Sidebar>              
                 {children}                                 
               </Sidebar>              

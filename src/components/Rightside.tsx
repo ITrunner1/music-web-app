@@ -17,7 +17,7 @@ const Rightside = () => {
           type: 'spring',
           duration: 0.5,
         }}
-    className="                 
+    className="                         
         hidden
         md:flex                
         top-0

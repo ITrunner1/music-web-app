@@ -6,6 +6,8 @@ import ListItem from "@/components/ListItem";
 export default function Home() {  
   return (
     <main className="
+            dark
+            text-foreground            
             min-h-screen
             min-w-max
             bg-blakishgray

@@ -2,10 +2,20 @@
 
 import { RiPlayListFill } from "react-icons/ri";
 import { AiOutlinePlus } from "react-icons/ai"
+import { motion } from "framer-motion";
+import { useUser } from "@/hooks/useUser";
+import { Modal } from "@nextui-org/react";
 
-const Library = () => { 
-    const onClick = () => {
-        // Handle upload later
+import useAuthModal from "@/hooks/useAuthModal";
+
+const Library = () => {     
+    const authModal = useAuthModal();
+    const { user } = useUser();
+
+    const onClick = () => {        
+        if (!user) {            
+            return authModal.onOpen();
+        }
     }   
 
     return ( 
@@ -32,16 +42,20 @@ const Library = () => {
                                 Your Library
                             </p>                                                    
                     </div> 
-                    <AiOutlinePlus
-                        size={30}
-                        onclick={onClick}
-                        className="
-                            text-gray
-                            cursor-pointer
-                            hover:text-mattewhite
-                            transition
-                        "                      
-                    />                  
+                    <motion.div
+                        whileHover={{ scale: 1.2 }} 
+                    >
+                        <AiOutlinePlus
+                            size={30}
+                            onClick={onClick}
+                            className="
+                              text-gray
+                                cursor-pointer
+                              hover:text-mattewhite
+                                transition
+                            "                      
+                        />         
+                    </motion.div>         
             </div>
             <hr className="
                     w-full

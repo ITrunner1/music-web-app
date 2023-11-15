@@ -1,81 +1,56 @@
-'use client'
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-  Checkbox,
-  Input,
-  Link
-} from "@nextui-org/react";
+import * as Dialog from '@nextui-org/react';
 
-function ModalAuth() {
-    const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    return (        
-        <div> 
-            <Button className="" onPress={onOpen}>Open Modal</Button>            
-            <Modal 
-              isOpen={isOpen}
-              onOpenChange={onOpenChange}
-              classNames={{
-                body: "",
-                backdrop: "",
-                base: "",
-              }}
-            >
-            <ModalContent>
+interface ModalProps {
+    isOpen: boolean;
+    onChange: (open: boolean) => void;
+    title: string;
+    description: string;
+    children: React.ReactNode;
+  }
+  
+  const Modal: React.FC<ModalProps> = ({
+    isOpen,
+    onChange,
+    title,
+    description,
+    children
+  }) => {
+    return ( 
+      <Dialog.Modal isOpen={isOpen} defaultOpen={isOpen} onOpenChange={onChange}
+      classNames={{
+        body: "py-6",
+        backdrop: "",
+        header: "border-b-[1px] border-[#292F46]",
+        footer: "border-t-[1px] border-[#292F46]",
+        base: "bg-darkgray text-mattewhite border-[#292F46]",        
+      }}       
+      >       
+        <Dialog.ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Log in</ModalHeader>
-              <ModalBody>
-                <Input
-                  autoFocus
-                  endContent={
-                    <div className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-                  }
-                  label="Email"
-                  placeholder="Enter your email"
-                  variant="bordered"
-                />
-                <Input
-                  endContent={
-                    <div className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-                  }
-                  label="Password"
-                  placeholder="Enter your password"
-                  type="password"
-                  variant="bordered"
-                />
-                <div className="flex py-2 px-1 justify-between">
-                  <Checkbox
-                    classNames={{
-                      label: "text-small",
-                    }}
-                  >
-                    Remember me
-                  </Checkbox>
-                  <Link color="primary" href="#" size="sm">
-                    Forgot password?
-                  </Link>
-                </div>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="flat" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Sign in
-                </Button>
-              </ModalFooter>
+          <Dialog.ModalHeader 
+            className="              
+            "
+          >
+            {title}
+          </Dialog.ModalHeader>
+            <Dialog.ModalBody
+              className="">
+                {description}
+                {children}              
+            </Dialog.ModalBody>
+            <Dialog.ModalFooter>
+              <Dialog.Button color="danger" variant="light" onPress={onClose}
+                className=""                
+              >    
+              Close            
+              </Dialog.Button>
+            </Dialog.ModalFooter>
             </>
-          )}
-        </ModalContent>
-      </Modal>
-        </div>
-    )
+            )}          
+          </Dialog.ModalContent>
+      </Dialog.Modal>
+  );
 }
 
-export default ModalAuth
+export default Modal;

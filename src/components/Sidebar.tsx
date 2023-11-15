@@ -94,6 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, active }) => {
   return (
     <div 
     className="
+        dark
         flex
         h-full
         "

@@ -1,6 +1,8 @@
 'use client'
 
-import Modal from "./Modal";
+import ModalAuth from "./ModalAuth";
+import useAuthModal from "@/hooks/useAuthModal";
+import { useUser } from "@/hooks/useUser";
 
 import { twMerge } from "tailwind-merge";
 import { IoIosHome } from "react-icons/io"
@@ -9,7 +11,10 @@ import { BsCompassFill, BsFillBarChartFill } from "react-icons/bs";
 import { HiOutlineArrowSmallLeft, HiOutlineArrowSmallRight } from "react-icons/hi2";
 import { BiSolidPlaylist } from "react-icons/bi"
 import { GoVideo } from "react-icons/go"
-import { Button, useDisclosure } from "@nextui-org/react";
+import { Avatar, Button } from "@nextui-org/react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 interface HeaderProps { 
     children: React.ReactNode;
@@ -17,10 +22,18 @@ interface HeaderProps {
   }
 
 const Header: React.FC<HeaderProps> = ({ children, className }) => {
-    const handleLogout = () => {
-        // Button Logout
-    }
-    const {isOpen, onOpen, onOpenChange} = useDisclosure();
+    const authModal = useAuthModal();
+    const router = useRouter();
+    const supabaseClient = useSupabaseClient();
+    const { user } = useUser();
+    const handleLogout = async () => {
+        const { error } = await supabaseClient.auth.signOut();
+        router.refresh();
+
+        if (error) {
+            console.log(error);
+        }
+    }    
     return (
         <div
             className={twMerge(`                
@@ -121,22 +134,53 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                     >
                     <GoVideo size={30} className="text-mattewhite" />
                     </button>                  
-                </div>                    
+                </div> 
+                <div>Hello</div>                   
                 <div className="
                         text-mattewhite
                         flex
                         justify-between
                         items-center
                         gap-x-4
-                        "> 
+                        ">                            
+                        {user ? (                            
+                            <div className="flex gap-x-4 items-center">
+                                <motion.div
+                                    whileHover={{ scale: 1.2 }}              
+                                >
+                                <Button
+                                    onPress={handleLogout}
+                                >
+                                    Log out
+                                </Button>
+                                </motion.div>
+                                <motion.div
+                                    whileHover={{ scale: 1.2 }}              
+                                >
+                                <Avatar
+                                    className="cursor:pointer"
+                                    onClick={() => router.push('/account')}
+                                    isBordered
+                                    radius="sm"
+                                    color="warning"
+                                    src="https://i.ibb.co/jZh9jBd/cfca9c80-5351-4872-bd91-4413ce15ca22.webp">
+                                </Avatar>
+                                </motion.div>
+                            </div>
+                        ) : (      
                         <>
-                            <div>                                
-                                <Modal />                                                             
-                            </div>
-                            <div>
-                                <Modal />
-                            </div>
-                        </>                   
+                            <Button
+                                onPress={authModal.onOpen}                            
+                            >                                
+                                Sign Up                                                                 
+                            </Button>
+                            <Button
+                                onPress={authModal.onOpen}  
+                            >
+                                Log In
+                            </Button>
+                        </> 
+                        )}                  
                 </div>              
             </div>
             {children}
