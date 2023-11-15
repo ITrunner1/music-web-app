@@ -7,15 +7,19 @@ import { useUser } from "@/hooks/useUser";
 import { Modal } from "@nextui-org/react";
 
 import useAuthModal from "@/hooks/useAuthModal";
+import useUploadModal from "@/hooks/useUploadModal";
 
 const Library = () => {     
     const authModal = useAuthModal();
+    const uploadModal = useUploadModal();
     const { user } = useUser();
 
     const onClick = () => {        
         if (!user) {            
             return authModal.onOpen();
-        }
+        }       
+        
+        return uploadModal.onOpen();
     }   
 
     return ( 

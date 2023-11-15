@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import AuthModal from "@/components/ModalAuth";
+import UploadModal from "@/components/uploadModal";
 
 const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -18,6 +19,7 @@ const ModalProvider = () => {
   return (
     <>
       <AuthModal />
+      <UploadModal />
     </>
   );
 }
