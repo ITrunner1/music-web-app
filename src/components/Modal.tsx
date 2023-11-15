@@ -23,8 +23,7 @@ interface ModalProps {
         classNames={{
           body: "py-6",
           backdrop: "",
-          header: "border-b-[1px] border-[#292F46]",
-          footer: "border-t-[1px] border-[#292F46]",
+          header: "border-b-[1px] border-[#292F46]",          
           base: "bg-darkgray text-mattewhite border-[#292F46]",        
         }}       
       >       
@@ -38,14 +37,7 @@ interface ModalProps {
                 {description}                
                 {children}              
               </Dialog.ModalBody>
-              <Dialog.ModalFooter>
-                <Dialog.Button
-                  color="danger"
-                  variant="light"
-                  onPress={onClose}                                  
-                >    
-                Close            
-                </Dialog.Button>
+              <Dialog.ModalFooter>                
               </Dialog.ModalFooter>
             </>
           )}          
