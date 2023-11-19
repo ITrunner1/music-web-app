@@ -93,7 +93,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, active }) => {
 
   return (
     <div 
-    className="
+    className="        
         dark
         flex
         h-full
@@ -147,14 +147,14 @@ const Sidebar: React.FC<SidebarProps> = ({ children, active }) => {
             </Box> 
       </div>      
     </div>    
-    <Maincontent setIsLibraryOpen={setIsLibraryOpen}>
+    <Maincontent setIsLibraryOpen={setIsLibraryOpen} className="h-full flex-1 overflow-y-auto py-0">
         {children}        
     </Maincontent>  
         <AnimatePresence>
             {isLibraryOpen && (<Rightside />)}         
         </AnimatePresence>              
     </div>
-  );
+  );    
 }
 
 export default Sidebar;

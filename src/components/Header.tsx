@@ -1,6 +1,5 @@
 'use client'
 
-import ModalAuth from "./ModalAuth";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
@@ -8,7 +7,6 @@ import { twMerge } from "tailwind-merge";
 import { IoIosHome } from "react-icons/io"
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { BsCompassFill, BsFillBarChartFill } from "react-icons/bs"; 
-import { HiOutlineArrowSmallLeft, HiOutlineArrowSmallRight } from "react-icons/hi2";
 import { BiSolidPlaylist } from "react-icons/bi"
 import { GoVideo } from "react-icons/go"
 import { Avatar, Button } from "@nextui-org/react";
@@ -135,7 +133,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                     <GoVideo size={30} className="text-mattewhite" />
                     </button>                  
                 </div> 
-                <div>Hello</div>                   
+                <div></div>                   
                 <div className="
                         text-mattewhite
                         flex
