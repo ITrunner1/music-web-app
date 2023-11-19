@@ -3,13 +3,18 @@
 import { RiPlayListFill } from "react-icons/ri";
 import { AiOutlinePlus } from "react-icons/ai"
 import { motion } from "framer-motion";
-import { useUser } from "@/hooks/useUser";
-import { Modal } from "@nextui-org/react";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import useUploadModal from "@/hooks/useUploadModal";
+import { useUser } from "@/hooks/useUser";
+import { Song } from "../../types";
+import MediaItem from "./MediaItem";
 
-const Library = () => {     
+interface LibraryProps {   
+    songs: Song;
+}
+
+const Library: React.FC<LibraryProps> = ({ songs }) => {     
     const authModal = useAuthModal();
     const uploadModal = useUploadModal();
     const { user } = useUser();
@@ -77,7 +82,13 @@ const Library = () => {
                 mt-4
                 px-3
             ">
-                    List of Songs
+                    {songs.map((item) => (
+                        <MediaItem
+                            onClick={() => {}}
+                            key={item.id}
+                            data={item}
+                        />
+                    ))} 
             </div>          
         </div>
     );

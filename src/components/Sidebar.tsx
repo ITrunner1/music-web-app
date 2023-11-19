@@ -21,13 +21,14 @@ import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Rightside from "./Rightside";
 import Maincontent from './Maincontent';
+import { Song } from '../../types';
 
 interface SidebarProps { 
     children: React.ReactNode;
-    active?: boolean;    
+    songs: Song;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ children, active }) => {
+const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
     const [isLibraryOpen, setIsLibraryOpen] = useState(false);
     const closeLibrary = () => {
         setIsLibraryOpen(false);        
@@ -151,7 +152,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, active }) => {
         {children}        
     </Maincontent>  
         <AnimatePresence>
-            {isLibraryOpen && (<Rightside />)}         
+            {isLibraryOpen && (<Rightside songs={songs} />)}         
         </AnimatePresence>              
     </div>
   );    

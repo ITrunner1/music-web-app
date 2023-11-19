@@ -7,6 +7,7 @@ import Sidebar from '@/components/Sidebar'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/userProvider'
 import ModalProvider from '@/providers/ModalProvider'
+import getSongsByUserId from '@/actions/getSongsbyUserId'
 import { NextUIProv } from '@/providers/NextUIProvider';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,21 +17,23 @@ export const metadata: Metadata = {
   description: 'Spotify 2.0',
 }
 
-export default function RootLayout({
+export const revalidate = 0;
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode,
   setIsLibraryOpen: (isLibraryOpen: boolean) => void,
 }) {  
-  
-  return (
+  const userSongs = await getSongsByUserId();
+  return (    
     <html lang="en">
       <body className={inter.className}> 
         <SupabaseProvider>          
           <UserProvider>
             <NextUIProv> 
               <ModalProvider />             
-              <Sidebar>              
+              <Sidebar songs={userSongs}>              
                 {children}                                 
               </Sidebar>              
             </NextUIProv>

@@ -2,9 +2,15 @@
 
 import Library from "./Library";
 import Box from "./Box";
+import { Song } from "../../types";
+
 import { motion } from "framer-motion";
 
-const Rightside = () => {      
+interface RightsideProps {   
+  songs: Song;
+}
+
+const Rightside: React.FC<RightsideProps> = ({ songs }) => {      
   return (    
     <motion.div 
     initial={{ opacity: 0, x: '100%' }}
@@ -34,7 +40,7 @@ const Rightside = () => {
     ">
       <div className="">      
           <Box className="overflow-y-auto h-full">
-            <Library />                        
+            <Library songs={songs}/>                        
           </Box>       
       </div>      
     </motion.div>
