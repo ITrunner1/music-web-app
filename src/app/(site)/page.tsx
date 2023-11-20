@@ -17,9 +17,11 @@ export default async function Home() {
       <Header>                   
         <div className="mb-2">
           <h1 className="
-            text-mattewhite
-            text-[36px]
-            font-semibold
+          text-mattewhite
+            text-4xl
+            sm:text-5xl
+            lg-7xl
+            font-bold
           ">
             Welcome back
           </h1>        

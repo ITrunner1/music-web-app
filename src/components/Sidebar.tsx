@@ -1,8 +1,8 @@
 "use client"
 
 import { usePathname, useRouter } from 'next/navigation'
-import {    
-  ChartBarIcon,
+import { FaHeart } from "react-icons/fa";
+import {
   HomeIcon,
 } from "@heroicons/react/24/solid";
 import { 
@@ -49,11 +49,17 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
             href: '/home',            
         },
         {
+            icon: FaHeart,
+            label: 'Liked',
+            active: pathname === '/liked',
+            href: '/liked',
+        },  
+        {
             icon: BsCompassFill,
             label: 'Search',
             active: pathname === '/search',
             href: '/search',
-        },
+        },        
         {
             icon: BiSolidPlaylist,
             label: 'Playlists',
@@ -65,13 +71,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
             label: 'Podcasts',
             active: pathname === '/podcasts',
             href: '/podcasts',
-        },        
-        {
-            icon: ChartBarIcon,
-            label: 'Chart',
-            active: pathname === '/chart',
-            href: '/chart',
-        },               
+        },            
         {
             icon: GoVideo,
             label: 'Videos',
