@@ -55,12 +55,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
                     className="object-cover"
                 />
             </div>
-            <div className="
-                flex
-                flex-col
-                gap-y-1
-                oveflow-hidden
-            ">
+            <div className="flex flex-col gap-y-1 oveflow-hidden">             
                 <p className="text-mattewhite truncate">
                     {data.title}
                 </p>

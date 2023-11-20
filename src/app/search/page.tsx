@@ -16,12 +16,7 @@ const Search = async ({ searchParams }: SearchProps) => {
 
     return (
         <main 
-            className="
-                dark
-                text-foreground            
-                min-h-screen
-                min-w-max                      
-        ">
+            className="dark text-foreground min-h-screen min-w-max">         
             <Header>
                 <div className="mb-2 flex flex-col gap-y-6">
                     <h1 className="text-mattewhite text-3xl font-semibold">

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { BiPlay } from "react-icons/bi"
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 
 interface ListItemProps {
     image: string;

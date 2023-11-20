@@ -105,11 +105,7 @@ interface PlayerContentProps {
     
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
-            <div className="
-                    flex
-                    w-full
-                    justify-start
-            ">
+            <div className="flex w-full justify-start">
                 <div className="flex items-center gap-x-4">
                     <MediaItem data={song} />
                     <LikeButton songId={song.id} />

@@ -1,11 +1,11 @@
 'use client';
 
-import MediaItem from "@/components/MediaItem";
-import { Song } from "../../../../types";
-import { useUser } from "@/hooks/useUser";
-
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+
+import { Song } from "../../../../types";
+import { useUser } from "@/hooks/useUser";
+import MediaItem from "@/components/MediaItem";
 import LikeButton from "@/components/LikeButton";
 import useOnPlay from "@/hooks/useOnPlay";
 
@@ -28,14 +28,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
 
     if (songs.length === 0) {
         return (
-            <div className="
-                    flex
-                    flex-col
-                    gap-y-2
-                    w-full
-                    px-6
-                    text-gray
-            ">
+            <div className="flex flex-col gap-y-2 w-full px-6 text-gray">
                 No liked songs.
             </div>
         );

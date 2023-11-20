@@ -12,6 +12,7 @@ import { BsCompassFill } from "react-icons/bs";
 import { MdFeaturedPlayList } from "react-icons/md"
 import { MdLibraryMusic } from "react-icons/md"
 import { useMemo } from "react";
+import { Divider } from '@nextui-org/react';
 import Image from "next/image";
 
 import Box from "./Box";
@@ -19,6 +20,7 @@ import SidebarItem from "./SidebarItem";
 import usePlayer from '@/hooks/usePlayer';
 import { Song } from '../../types';
 import { twMerge } from 'tailwind-merge';
+
 
 interface SidebarProps { 
     children: React.ReactNode;
@@ -82,14 +84,8 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
     ], [pathname]); 
 
   return (
-    <div 
-        className="
-            dark
-            flex
-            h-full
-            z-10">
-            
-    <div className="
+    <div className="dark flex h-full z-10">            
+        <div className="
                 hidden
                 md:flex                
                 top-0
@@ -101,36 +97,22 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
                 w-[90px]
                 h-fill
                 space-y-8"
-                >
-                    
+                >                    
         <Image
         alt="image"
         src="https://i.ibb.co/HT7r6cv/harmonyhub-favicon-color.png"
         width={56}
-        height={56}
-        objectFit="contain"
+        height={56}               
       />
-      <hr className="w-14
-                    h-1
-                    bg-blackgray
-                    border-0 
-                    rounded">
-      </hr>
+      <Divider className="h-1 bg-blackgray" />      
       <div className="">
             <Box>
-                <div                    
-                    className="
-                            flex
-                            flex-col
-                            gap-y-4
-                            px-5
-                            py-4 
-                        ">                    
-                            {routes.map((item) => (                               
-                                <SidebarItem                                     
-                                    key={item.label}
-                                    {...item} />
-                            ))}
+                <div className="flex flex-col gap-y-4 px-5 py-4 ">                     
+                    {routes.map((item) => (                               
+                        <SidebarItem                                     
+                            key={item.label}
+                            {...item} />
+                    ))}                            
                 </div>                
             </Box> 
       </div>      

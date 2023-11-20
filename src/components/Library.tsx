@@ -31,12 +31,7 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
 
     return ( 
         <div className="flex flex-col">
-            <div className="
-                    flex
-                    items-center
-                    justify                
-                    pt-4
-                    ">  
+            <div className="flex items-center justify pt-4">           
                     <div className="
                            text-mattewhite
                             inline-flex

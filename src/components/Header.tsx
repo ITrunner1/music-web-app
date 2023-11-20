@@ -35,21 +35,10 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             console.log(error);
         }
     }    
+
     return (
-        <div
-            className={twMerge(`                
-                p-6
-            `, 
-                className
-            )}
-        >
-            <div className="
-                w-full
-                mb-4
-                flex
-                items-center
-                justify-between
-            ">                
+        <div className={twMerge(`p-6`, className)}>        
+            <div className="w-full mb-4 flex items-center justify-between">
                 <div className="flex md:hidden gap-x-2 items-center">
                     <button 
                         className="
@@ -146,18 +135,14 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                         ">                            
                         {user ? (                            
                             <div className="flex gap-x-4 items-center">
-                                <motion.div
-                                    whileHover={{ scale: 1.2 }}              
-                                >
+                                <motion.div whileHover={{ scale: 1.2 }}>
                                 <Button
                                     onPress={handleLogout}
                                 >
                                     Log out
                                 </Button>
                                 </motion.div>
-                                <motion.div
-                                    whileHover={{ scale: 1.2 }}              
-                                >
+                                <motion.div whileHover={{ scale: 1.2 }}>
                                 <Avatar
                                     className="cursor:pointer"
                                     onClick={() => router.push('/account')}
@@ -170,14 +155,10 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                             </div>
                         ) : (      
                         <>
-                            <Button
-                                onPress={authModal.onOpen}                            
-                            >                                
+                            <Button onPress={authModal.onOpen}>                                
                                 Sign Up                                                                 
                             </Button>
-                            <Button
-                                onPress={authModal.onOpen}  
-                            >
+                            <Button onPress={authModal.onOpen}>
                                 Log In
                             </Button>
                         </> 

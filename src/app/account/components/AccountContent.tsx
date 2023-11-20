@@ -20,7 +20,7 @@ const AccountContent = () => {
     return (
         <div className="mb-7 px-6">
             <div className="flex flex-col gap-y-4">
-                
+                Account page
             </div>
         </div>
     );
