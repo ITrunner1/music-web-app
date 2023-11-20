@@ -1,13 +1,14 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Play } from 'next/font/google'
 
 import Sidebar from '@/components/Sidebar'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/userProvider'
 import ModalProvider from '@/providers/ModalProvider'
-import getSongsByUserId from '@/actions/getSongsbyUserId'
+import getSongsByUserId from '@/actions/getSongsByUserId'
+import Player from '@/components/Player'
 import { NextUIProv } from '@/providers/NextUIProvider';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -35,7 +36,8 @@ export default async function RootLayout({
               <ModalProvider />             
               <Sidebar songs={userSongs}>              
                 {children}                                 
-              </Sidebar>              
+              </Sidebar> 
+              <Player />
             </NextUIProv>
           </UserProvider>          
         </SupabaseProvider>           

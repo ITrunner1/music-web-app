@@ -7,7 +7,7 @@ import { Song } from "../../types";
 import { motion } from "framer-motion";
 
 interface RightsideProps {   
-  songs: Song;
+  songs: Song[];
 }
 
 const Rightside: React.FC<RightsideProps> = ({ songs }) => {      
@@ -27,8 +27,7 @@ const Rightside: React.FC<RightsideProps> = ({ songs }) => {
         hidden
         md:flex                
         top-0
-        right-0
-        z-2                
+        right-0                        
         flex-col
         pt-4
         p-4

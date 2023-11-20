@@ -5,6 +5,7 @@ import PlayButton from "./PlayButton";
 import { Song } from "../../types";
 
 import { Card, CardHeader, CardBody, Image, CardFooter, Button } from "@nextui-org/react"
+import { motion } from "framer-motion";
 
 interface SongItemProps { 
     data: Song;
@@ -18,8 +19,11 @@ const SongItem: React.FC<SongItemProps> = ({
     const imagePath = useLoadImage(data);
 
     return (
-        <Card
+        <motion.div 
+            whileHover={{ scale: 1.2 }}
             onClick={() => onClick(data.id)}
+        >       
+        <Card            
             className="
                 mt-6                                                       
                 cursor-pointer
@@ -48,6 +52,7 @@ const SongItem: React.FC<SongItemProps> = ({
                 <PlayButton />
             </div> 
         </Card>
+        </motion.div>
     );
 };
 

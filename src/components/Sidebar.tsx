@@ -21,14 +21,16 @@ import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Rightside from "./Rightside";
 import Maincontent from './Maincontent';
+import usePlayer from '@/hooks/usePlayer';
 import { Song } from '../../types';
+import { twMerge } from 'tailwind-merge';
 
 interface SidebarProps { 
     children: React.ReactNode;
-    songs: Song;
+    songs: Song[];
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
+const Sidebar = ({ children, songs }: SidebarProps) => {
     const [isLibraryOpen, setIsLibraryOpen] = useState(false);
     const closeLibrary = () => {
         setIsLibraryOpen(false);        
@@ -36,17 +38,16 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
     const openLibrary = () => {
         setIsLibraryOpen(true);        
     };      
-    const router = useRouter();
-    const handleLogout = () => {
-        // Handle Logout in the future
-    }
+    const router = useRouter();            
     const pathname = usePathname();
+    const player = usePlayer();
+
     const routes = useMemo(() => [
         {
             icon: HomeIcon,
             label: 'Home',
-            active: pathname === '/home',
-            href: '/home',            
+            active: pathname === '/',
+            href: '/',            
         },
         {
             icon: FaHeart,
@@ -94,17 +95,17 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
 
   return (
     <div 
-    className="        
-        dark
-        flex
-        h-full
-        "
-    >
+        className="
+            dark
+            flex
+            h-full
+            z-10">
+            
     <div className="
                 hidden
                 md:flex                
                 top-0
-                z-40                
+                z-20                
                 flex-col
                 p-4
                 items-center
@@ -148,12 +149,13 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
             </Box> 
       </div>      
     </div>    
-    <Maincontent setIsLibraryOpen={setIsLibraryOpen} className="h-full flex-1 overflow-y-auto py-0">
-        {children}        
+    <Maincontent setIsLibraryOpen={setIsLibraryOpen}>
+            {children}               
     </Maincontent>  
         <AnimatePresence>
             {isLibraryOpen && (<Rightside songs={songs} />)}         
-        </AnimatePresence>              
+        </AnimatePresence> 
+               
     </div>
   );    
 }
