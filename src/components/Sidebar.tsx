@@ -2,19 +2,17 @@
 
 import { usePathname, useRouter } from 'next/navigation'
 import { FaHeart } from "react-icons/fa";
-import {
-  HomeIcon,
-} from "@heroicons/react/24/solid";
 import { 
     HiOutlineArrowSmallLeft,
     HiOutlineArrowSmallRight 
 } from "react-icons/hi2";
+import { BsMusicNote } from "react-icons/bs"
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { BsCompassFill } from "react-icons/bs"; 
-import { BiSolidPlaylist } from "react-icons/bi"
-import { GoVideo } from "react-icons/go"
+import { MdFeaturedPlayList } from "react-icons/md"
+import { BiSolidVideos } from "react-icons/bi"
 import { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 import Box from "./Box";
@@ -23,7 +21,6 @@ import Rightside from "./Rightside";
 import Maincontent from './Maincontent';
 import usePlayer from '@/hooks/usePlayer';
 import { Song } from '../../types';
-import { twMerge } from 'tailwind-merge';
 
 interface SidebarProps { 
     children: React.ReactNode;
@@ -44,8 +41,8 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
 
     const routes = useMemo(() => [
         {
-            icon: HomeIcon,
-            label: 'Home',
+            icon: BsMusicNote,
+            label: 'Music',
             active: pathname === '/',
             href: '/',            
         },
@@ -62,7 +59,7 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
             href: '/search',
         },        
         {
-            icon: BiSolidPlaylist,
+            icon: MdFeaturedPlayList,
             label: 'Playlists',
             active: pathname === '/playlists',
             href: '/playlists',
@@ -74,7 +71,7 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
             href: '/podcasts',
         },            
         {
-            icon: GoVideo,
+            icon: BiSolidVideos,
             label: 'Videos',
             active: pathname === '/videos',
             href: '/videos',

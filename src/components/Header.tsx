@@ -2,6 +2,7 @@
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
+import usePlayer from "@/hooks/usePlayer";
 
 import { twMerge } from "tailwind-merge";
 import { IoIosHome } from "react-icons/io"
@@ -23,9 +24,11 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     const authModal = useAuthModal();
     const router = useRouter();
     const supabaseClient = useSupabaseClient();
+    const player = usePlayer();
     const { user } = useUser();
     const handleLogout = async () => {
         const { error } = await supabaseClient.auth.signOut();
+        player.reset();
         router.refresh();
 
         if (error) {
