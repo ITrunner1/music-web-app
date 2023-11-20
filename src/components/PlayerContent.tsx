@@ -199,7 +199,7 @@ interface PlayerContentProps {
                     />
                     <Slider
                         value={volume}
-                        onChange={(value) => setVolume(value)}
+                        onChange={() => {}}
                     />
                 </div>                
             </div>
