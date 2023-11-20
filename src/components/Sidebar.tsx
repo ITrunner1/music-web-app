@@ -10,31 +10,22 @@ import { BsMusicNote } from "react-icons/bs"
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { BsCompassFill } from "react-icons/bs"; 
 import { MdFeaturedPlayList } from "react-icons/md"
-import { BiSolidVideos } from "react-icons/bi"
-import { useMemo, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { MdLibraryMusic } from "react-icons/md"
+import { useMemo } from "react";
 import Image from "next/image";
 
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
-import Rightside from "./Rightside";
-import Maincontent from './Maincontent';
 import usePlayer from '@/hooks/usePlayer';
 import { Song } from '../../types';
+import { twMerge } from 'tailwind-merge';
 
 interface SidebarProps { 
     children: React.ReactNode;
     songs: Song[];
 }
 
-const Sidebar = ({ children, songs }: SidebarProps) => {
-    const [isLibraryOpen, setIsLibraryOpen] = useState(false);
-    const closeLibrary = () => {
-        setIsLibraryOpen(false);        
-    };  
-    const openLibrary = () => {
-        setIsLibraryOpen(true);        
-    };      
+const Sidebar = ({ children, songs }: SidebarProps) => {    
     const router = useRouter();            
     const pathname = usePathname();
     const player = usePlayer();
@@ -57,6 +48,12 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
             label: 'Search',
             active: pathname === '/search',
             href: '/search',
+        },
+        {
+            icon: MdLibraryMusic,
+            label: 'Library',
+            active: pathname === '/library',
+            href: '/library',
         },        
         {
             icon: MdFeaturedPlayList,
@@ -69,19 +66,13 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
             label: 'Podcasts',
             active: pathname === '/podcasts',
             href: '/podcasts',
-        },            
-        {
-            icon: BiSolidVideos,
-            label: 'Videos',
-            active: pathname === '/videos',
-            href: '/videos',
         },
-        {
-            icon: HiOutlineArrowSmallRight,
-            label: 'Forward',  
-            href: '/forward',         
-            onclick: router.forward()
-        }, 
+        // {
+        //     icon: HiOutlineArrowSmallRight,
+        //     label: 'Forward',  
+        //     href: '/',         
+        //     onclick: router.forward()
+        // }, 
         {
             icon: HiOutlineArrowSmallLeft,
             label: 'Back',  
@@ -140,19 +131,22 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
                                     key={item.label}
                                     {...item} />
                             ))}
-                </div>
-                {isLibraryOpen ? ( <button onClick={closeLibrary}>CLOSE LIBRARY</button> ) :   
-                ( <button onClick={openLibrary}>OPEN LIBRARY</button> )}
+                </div>                
             </Box> 
       </div>      
     </div>    
-    <Maincontent setIsLibraryOpen={setIsLibraryOpen}>
+    <main 
+        className={
+            twMerge(`
+                h-full
+                flex-1
+                overflow-y-auto
+                py-0
+                z-10`,
+                player.activeId && "h-[calc(100%-80px)]"
+        )}>
             {children}               
-    </Maincontent>  
-        <AnimatePresence>
-            {isLibraryOpen && (<Rightside songs={songs} />)}         
-        </AnimatePresence> 
-               
+    </main>    
     </div>
   );    
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { RiPlayListFill } from "react-icons/ri";
 import { AiOutlinePlus } from "react-icons/ai"
 import { motion } from "framer-motion";
 
@@ -43,20 +42,20 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
                             inline-flex
                             items-center
                             gap-x-6
-                            pr-36
-                            ">
-                            <RiPlayListFill size={46}/>                            
-                            <p className="                                    
-                                    font-medium
-                                    text-md
-                                    text-xl
-                                    ">
-                                Your Library
-                            </p>                                                    
+                            px-3
+                            pr-2
+                            ">                                                       
+                        <h1 className="
+                            text-mattewhite
+                            text-2xl
+                            sm:text-2xl
+                            lg-7xl
+                            font-bold
+                        ">
+                            Add song
+                        </h1>                                               
                     </div> 
-                    <motion.div
-                        whileHover={{ scale: 1.2 }} 
-                    >
+                    <motion.div whileHover={{ scale: 1.2 }}>
                         <AiOutlinePlus
                             size={30}
                             onClick={onClick}
@@ -68,30 +67,15 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
                             "                      
                         />         
                     </motion.div>         
-            </div>
-            <hr className="
-                    w-full
-                    h-1 
-                    text-lightcarrot
-                    bg-lightcarrot
-                    border-1
-                    mt-4                                       
-                    ">                    
-            </hr> 
-            <div className="
-                flex
-                flex-col
-                gap-y-2
-                mt-4
-                px-3
-            ">
-                    {songs.map((item) => (
-                        <MediaItem
-                            onClick={(id: string) => onPlay(id)}
-                            key={item.id}
-                            data={item}
-                        />
-                    ))} 
+            </div>        
+            <div className="flex flex-col gap-y-2 mt-4 px-3">
+                {songs?.map((item) => (
+                    <MediaItem
+                        onClick={(id: string) => onPlay(id)}
+                        key={item.id}
+                        data={item}
+                    />
+                ))} 
             </div>          
         </div>
     );

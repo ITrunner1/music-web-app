@@ -88,7 +88,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
     return (
         <motion.div whileHover={{ scale: 1.2 }}>
             <Button isIconOnly className="bg-inherit" onClick={handleLike}>
-                <Icon color={isLiked ? '#FF6600' : 'mattewhite'} size={25}/>
+                <Icon color={isLiked ? '#FF6600' : '#F2F3F4'} size={25}/>
             </Button>
         </motion.div>
     );
