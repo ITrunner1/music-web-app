@@ -2,15 +2,10 @@
 
 import { usePathname, useRouter } from 'next/navigation'
 import { FaHeart } from "react-icons/fa";
-import { 
-    HiOutlineArrowSmallLeft,
-    HiOutlineArrowSmallRight 
-} from "react-icons/hi2";
-import { BsMusicNote } from "react-icons/bs"
+import { HiOutlineArrowSmallLeft, HiOutlineArrowSmallRight } from "react-icons/hi2";
+import { BsMusicNote, BsCompassFill  } from "react-icons/bs"
 import { FaMicrophoneAlt } from "react-icons/fa";
-import { BsCompassFill } from "react-icons/bs"; 
-import { MdFeaturedPlayList } from "react-icons/md"
-import { MdLibraryMusic } from "react-icons/md"
+import { MdFeaturedPlayList, MdLibraryMusic } from "react-icons/md"
 import { useMemo } from "react";
 import { Divider } from '@nextui-org/react';
 import Image from "next/image";
