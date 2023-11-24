@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import AccountContent from "./components/AccountContent";
 
-const Account = () => {
+const Account = async () => {
     return (
         <div className="dark text-foreground min-h-screen min-w-max">
             <Header>

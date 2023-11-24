@@ -20,27 +20,28 @@ const SongItem: React.FC<SongItemProps> = ({
 
     return (
         <motion.div 
-            whileHover={{ scale: 1.2 }}
+            whileHover={{ scale: 1.2 }}            
+            whileTap={{ scale: 1 }}
             onClick={() => onClick(data.id)}
         >       
-        <Card className="mt-6 cursor-pointer w-[240px]"> 
-            <CardBody className="items-center">                
-                    <Image                    
-                        alt="Card background"
-                        className="rounded-xl object-cover"
-                        src={imagePath || '/images/liked.jpg'}
-                        width={220}
-                    />                
-            </CardBody>        
-            <CardFooter className="flex flex-col items-start pt-0 pl-5">                
-                <p className="items-center text-white/60 uppercase font-bold">
-                    {data.title}
-                </p>
-                <p className="text-gray font-medium">
-                    By {data.author}
-                </p>                
-            </CardFooter>             
-        </Card>
+            <Card className="mt-6 cursor-pointer w-[240px]"> 
+                <CardBody className="items-center">                
+                        <Image                    
+                            alt="Card background"
+                            className="rounded-xl object-cover"
+                            src={imagePath || '/images/liked.jpg'}
+                            width={220}
+                        />                
+                </CardBody>        
+                <CardFooter className="flex flex-col items-start pt-0 pl-5">                
+                    <p className="items-center text-white/60 uppercase font-bold">
+                        {data.title}
+                    </p>
+                    <p className="text-gray font-medium">
+                        By {data.author}
+                    </p>                
+                </CardFooter>             
+            </Card>
         </motion.div>
     );
 };

@@ -1,8 +1,8 @@
 'use client'
 
 import useAuthModal from "@/hooks/useAuthModal";
-import { useUser } from "@/hooks/useUser";
 import usePlayer from "@/hooks/usePlayer";
+import { useUser } from "@/hooks/useUser";
 import { twMerge } from "tailwind-merge";
 
 import { FaMicrophoneAlt, FaHeart } from "react-icons/fa";
@@ -12,6 +12,7 @@ import { Avatar, Button } from "@nextui-org/react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface HeaderProps { 
     children: React.ReactNode;
@@ -35,38 +36,66 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     }    
 
     return (
-        <div className={twMerge(`p-6`, className)}>        
+        <motion.div
+            className={twMerge(`p-6`, className)}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+        >        
             <div className="w-full mb-4 flex items-center justify-between">
-                <div className="z-30 flex md:hidden gap-x-2 pr-0">
-                    <motion.div whileHover={{ scale: 1.2 }}>
-                        <Button isIconOnly className="rounded-full bg-black w-12 h-12">
-                            <BsMusicNote size={30} className="text-mattewhite" />    
-                        </Button>
+                <div className="z-30 flex md:hidden gap-x-6 pr-0">
+                    <motion.div                         
+                        className="cursor-pointer mt-2"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                    >                       
+                        <Link href="/"> 
+                            <BsMusicNote size={36} className="text-mattewhite"/>  
+                        </Link>                         
                     </motion.div> 
-                    <motion.div whileHover={{ scale: 1.2 }}>                   
-                        <Button isIconOnly className="rounded-full bg-black w-12 h-12">                        
-                            <FaHeart size={30} className="text-mattewhite" />
-                        </Button>
+                    <motion.div                         
+                        className="cursor-pointer mt-2"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                    >
+                        <Link href="/liked"> 
+                            <FaHeart size={36} className="text-mattewhite" />  
+                        </Link>                      
                     </motion.div>  
-                    <motion.div whileHover={{ scale: 1.2 }}> 
-                        <Button isIconOnly className="rounded-full bg-black w-12 h-12">                    
-                            <BsCompassFill size={30} className="text-mattewhite" />
-                        </Button> 
+                    <motion.div                         
+                        className="cursor-pointer mt-2"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                    >        
+                        <Link href="/search"> 
+                            <BsCompassFill size={36} className="text-mattewhite" />
+                        </Link>                    
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.2 }}>
-                        <Button isIconOnly className="rounded-full bg-black w-12 h-12">                                        
-                            <MdLibraryMusic size={30} className="text-mattewhite" />
-                        </Button> 
+                    <motion.div                         
+                        className="cursor-pointer mt-2"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                    >
+                        <Link href="/library">                                                          
+                            <MdLibraryMusic size={36} className="text-mattewhite" /> 
+                        </Link>                   
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.2 }}>
-                        <Button isIconOnly className="rounded-full bg-black w-12 h-12">
-                            <MdFeaturedPlayList size={30} className="text-mattewhite" />
-                        </Button> 
+                    <motion.div                         
+                        className="cursor-pointer mt-2"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                    >          
+                        <Link href="/playlists">         
+                            <MdFeaturedPlayList size={36} className="text-mattewhite" />  
+                        </Link>                   
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.2 }}>
-                        <Button isIconOnly className="rounded-full bg-black w-12 h-12">                        
-                            <FaMicrophoneAlt size={30} className="text-mattewhite" />
-                        </Button>  
+                    <motion.div                         
+                        className="cursor-pointer mt-2"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                    >
+                        <Link href="/podcasts"> 
+                            <FaMicrophoneAlt size={36} className="text-mattewhite" />
+                        </Link>                         
                     </motion.div>
                 </div> 
                 <div></div>                   
@@ -79,14 +108,18 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                         ">                            
                         {user ? (                            
                             <div className="flex gap-x-4 items-center">
-                                <motion.div whileHover={{ scale: 1.2 }}>
-                                    <Button
-                                        onPress={handleLogout}
-                                    >
+                                <motion.div 
+                                    whileHover={{ scale: 1.2 }}
+                                    whileTap={{ scale: 0.8 }}
+                                >
+                                    <Button onPress={handleLogout}>                                    
                                         Log out
                                     </Button>
                                 </motion.div>
-                                <motion.div whileHover={{ scale: 1.2 }}>
+                                <motion.div
+                                    whileHover={{ scale: 1.2 }}
+                                    whileTap={{ scale: 0.8 }} 
+                                >
                                     <Avatar
                                         className="cursor:pointer"
                                         onClick={() => router.push('/account')}
@@ -98,19 +131,29 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                                 </motion.div>
                             </div>
                         ) : (      
-                        <div className="flex flex-1 gap-x-2">
-                            <Button onPress={authModal.onOpen}>                                
-                                Sign Up                                                                 
-                            </Button>
-                            <Button onPress={authModal.onOpen}>
-                                Log In
-                            </Button>
+                        <div className="flex flex-1 gap-x-4">
+                            <motion.div
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.8 }}
+                            >
+                                <Button onPress={authModal.onOpen}>                                
+                                    Sign Up                                                                 
+                                </Button>
+                            </motion.div>
+                            <motion.div
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.8 }}
+                            >
+                                <Button onPress={authModal.onOpen}>
+                                    Log In
+                                </Button>
+                            </motion.div>
                         </div> 
                         )}                  
                 </div>              
             </div>
             {children}
-        </div>
+        </motion.div>
     )
 }
 

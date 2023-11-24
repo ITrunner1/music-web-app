@@ -13,10 +13,10 @@ const config: Config = {
     colors: {
       black: "#000000",
       gray: "#808080",
-      darkgray: "#1d1e24",
-      blakishgray: "#1e2027",
+      darkgray: "#1D1E24",
+      blakishgray: "#1E2027",
       blackgray: "#242730",
-      bluishblack: "#17181c",
+      bluishblack: "#17181C",
       mattewhite: "#F2F3F4",
       lightcarrot: "#FF6600",
     },

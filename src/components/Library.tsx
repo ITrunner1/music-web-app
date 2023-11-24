@@ -30,7 +30,11 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
     }   
 
     return ( 
-        <div className="flex flex-col">
+        <motion.div 
+            className="flex flex-col"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+        >
             <div className="flex items-center justify pt-4">           
                     <div className="
                            text-mattewhite
@@ -50,18 +54,15 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
                             Add song
                         </h1>                                               
                     </div> 
-                    <motion.div whileHover={{ scale: 1.2 }}>
+                    <motion.button 
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                    >
                         <AiOutlinePlus
-                            size={30}
+                            size={32}
                             onClick={onClick}
-                            className="
-                              text-gray
-                                cursor-pointer
-                              hover:text-mattewhite
-                                transition
-                            "                      
-                        />         
-                    </motion.div>         
+                            className="t-1 ml-2 cursor-pointer text-gray hover:text-mattewhite transition"/>
+                    </motion.button>         
             </div>        
             <div className="flex flex-col gap-y-2 mt-4 px-3">
                 {songs?.map((item) => (
@@ -72,7 +73,7 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
                     />
                 ))} 
             </div>          
-        </div>
+        </motion.div>
     );
 };
 

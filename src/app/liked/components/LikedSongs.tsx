@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 import { Song } from "../../../../types";
 import { useUser } from "@/hooks/useUser";
@@ -35,7 +36,11 @@ const LikedContent: React.FC<LikedContentProps> = ({
     };
     
     return (
-        <div className="flex flex-col gap-y-2 w-full p-6">
+        <motion.div 
+            className="flex flex-col gap-y-2 w-full p-6"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+        >
             {songs.map((song) => (
                 <div
                     key={song.id}
@@ -50,7 +55,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
                     <LikeButton songId={song.id} />
                 </div>
             ))}
-        </div>
+        </motion.div>
     );
 };
 

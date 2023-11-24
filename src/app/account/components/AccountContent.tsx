@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 
 import { useUser } from "@/hooks/useUser";
 
-const AccountContent = () => {
+const AccountContent = () => {    
+
     const router = useRouter();
     const { isLoading, user } = useUser();
 

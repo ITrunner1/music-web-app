@@ -4,6 +4,7 @@ import MediaItem from "@/components/MediaItem";
 import LikeButton from "@/components/LikeButton";
 import { Song } from "../../../../types";
 import useOnPlay from "@/hooks/useOnPlay";
+import { motion } from "framer-motion";
 
 interface SearchContentProps {
     songs: Song[];
@@ -30,7 +31,11 @@ const SearchContent: React.FC<SearchContentProps> = ({
     };
     
     return (
-        <div className="flex flex-col gap-y-2 w-full px-6">
+        <motion.div 
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex flex-col gap-y-2 w-full px-6"
+        >
             {songs.map((song) => 
                 <div
                     key={song.id}
@@ -45,7 +50,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
                     <LikeButton songId={song.id}/>
                 </div>
             )}
-        </div>
+        </motion.div>
     )
 }
 

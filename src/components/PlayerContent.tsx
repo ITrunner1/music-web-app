@@ -5,6 +5,7 @@ import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { Button } from "@nextui-org/button";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import useSound from "../../use-sound";
 
 import LikeButton from "./LikeButton";
@@ -113,13 +114,13 @@ interface PlayerContentProps {
             </div>
             <div
                 className="
-                flex
-                md:hidden
-                col-auto
-                w-full
-                justify-end
-                items-center
-                "
+                  flex
+                  md:hidden
+                  col-auto
+                  w-full
+                  justify-end
+                  items-center
+                  "
             >
                 <Button
                     isIconOnly
@@ -139,8 +140,7 @@ interface PlayerContentProps {
                     <Icon size={30} className="text-black"/>
                 </Button>
             </div>
-
-            <div
+            <motion.div            
                 className="
                     hidden
                     h-full
@@ -151,18 +151,20 @@ interface PlayerContentProps {
                     max-w-[722px]
                     gap-x-6
                 "
-            >
-                <AiFillStepBackward 
-                    onClick={onPlayPrevious}
-                    size={30}
-                    className="
-                        text-gray
-                        cursor-pointer
-                        hover:text-mattewhite
-                        transition
-                    "
-                />
-                <div
+            >     
+                <motion.div 
+                  whileHover={{ scale: 1.2 }}                    
+                  whileTap={{ scale: 1 }}
+                >
+                  <AiFillStepBackward                   
+                      onClick={onPlayPrevious}
+                      size={30}
+                      className="text-gray cursor-pointer hover:text-mattewhite transition"
+                  />  
+                </motion.div>                      
+                <motion.div
+                    whileHover={{ scale: 1.2 }}                    
+                    whileTap={{ scale: 1 }}
                     onClick={handlePlay}
                     className="
                         flex
@@ -177,34 +179,36 @@ interface PlayerContentProps {
                     "
                 >
                     <Icon size={30} className="text-black"/>
-                </div>
-                <AiFillStepForward 
-                    onClick={onPlayNext}
-                    size={30}
-                    className="
-                        text-gray
-                        cursor-pointer
-                        hover:text-mattewhite
-                        transition
-                    "
-                />
-            </div>
-
+                </motion.div>
+                <motion.div
+                    whileHover={{ scale: 1.2 }}                    
+                    whileTap={{ scale: 1 }}
+                >
+                  <AiFillStepForward 
+                      onClick={onPlayNext}
+                      size={30}
+                      className="text-gray cursor-pointer hover:text-mattewhite transition"
+                  />  
+                </motion.div>                    
+            </motion.div>
             <div className="hidden md:flex w-full justify-end pr-2">
                 <div className="flex items-center gap-x-2 w-[120px]">
-                    <VolumeIcon 
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}                    
+                      whileTap={{ scale: 1 }}
+                    >
+                      <VolumeIcon 
                         onClick={toggleMute}
                         clasName="cursor-pointer"
                         size={34}
-                    />
+                      />
+                    </motion.div>
                     <Slider
                         value={volume}
                         onChange={() => {}}
                     />
                 </div>                
             </div>
-
-
         </div>
     );
 }

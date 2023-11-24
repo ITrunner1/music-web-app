@@ -2,9 +2,9 @@
 
 import SongItem from "@/components/SongItem";
 import { Song } from "../../../../types";
-
-import { Card, CardHeader } from "@nextui-org/react"
 import useOnPlay from "@/hooks/useOnPlay";
+
+import { motion } from "framer-motion";
 
 interface PageContentProps { 
     songs: Song[];
@@ -25,7 +25,10 @@ const PageContent: React.FC<PageContentProps> = ({
         )
     }
     return (
-        <div className="            
+        <motion.div 
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="            
                 grid
                 grid-cols-2
                 sm:grid-cols-3
@@ -43,7 +46,7 @@ const PageContent: React.FC<PageContentProps> = ({
                         data={item}
                     />
                 )}            
-        </div>
+        </motion.div>
     );
 };
 

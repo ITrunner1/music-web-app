@@ -46,7 +46,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({icon: Icon, active, href, labe
                 ]
             }}       
         >   
-            <motion.div whileHover={{ scale: 1.2 }}>
+            <motion.div 
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+            >
               <Link
                 href={href}
                 className={twMerge(`

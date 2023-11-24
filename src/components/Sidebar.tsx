@@ -79,51 +79,31 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
     ], [pathname]); 
 
   return (
-    <div className="dark flex h-full z-10">            
-        <div className="
-                hidden
-                md:flex                
-                top-0
-                z-20                
-                flex-col
-                p-4
-                items-center
-                bg-darkgray
-                w-[90px]
-                h-fill
-                space-y-8"
-                >                    
-        <Image
-        alt="image"
-        src="https://i.ibb.co/HT7r6cv/harmonyhub-favicon-color.png"
-        width={56}
-        height={56}               
-      />
-      <Divider className="h-1 bg-blackgray" />      
-      <div className="">
-            <Box>
-                <div className="flex flex-col gap-y-4 px-5 py-4 ">                     
-                    {routes.map((item) => (                               
-                        <SidebarItem                                     
-                            key={item.label}
-                            {...item} />
-                    ))}                            
-                </div>                
-            </Box> 
-      </div>      
-    </div>    
-    <main 
-        className={
-            twMerge(`
-                h-full
-                flex-1
-                overflow-y-auto
-                py-0
-                z-10`,
-                player.activeId && "h-[calc(100%-80px)]"
-        )}>
+    <div className={
+        twMerge(`dark flex h-full z-10`, player.activeId && "h-[calc(100%-80px)]")}>            
+        <div className="hidden md:flex z-20 flex-col pt-8 items-center bg-darkgray w-[90px] h-fill space-y-8">                    
+            <Image
+                alt="image"
+                src="https://i.ibb.co/HT7r6cv/harmonyhub-favicon-color.png"
+                width={56}
+                height={56}               
+            />
+        <Divider className="h-1 bg-blackgray" />      
+        <div className="">
+                <Box>
+                    <div className="flex flex-col gap-y-4 px-5 py-4 ">                     
+                        {routes.map((item) => (                               
+                            <SidebarItem                                     
+                                key={item.label}
+                                {...item} />
+                        ))}                            
+                    </div>                
+                </Box> 
+        </div>      
+        </div>    
+        <main className="h-full flex-1 overflow-y-auto py-0 z-10">      
             {children}               
-    </main>    
+        </main>    
     </div>
   );    
 }
