@@ -7,7 +7,7 @@ export const revalidate = 0;
 export default async function Home() {  
   const songs = await getSongs();
   return (
-    <main className="dark min-h-screen min-w-max bg-blakishgray">         
+    <main className="dark min-h-screen min-w-max">         
       <Header>                   
         <div className="mb-2 text-mattewhite">
           <h1 className="text-4xl sm:text-5xl lg-6xl font-bold">
@@ -15,12 +15,7 @@ export default async function Home() {
           </h1>        
         </div>        
       </Header>
-      <div className="mt-2 mb-7 px-6">
-        <div className="flex justify-between items-center">
-          <h1 className="text-mattewhite text-[24px] font-semibold">
-            Newest songs
-          </h1>
-        </div>
+      <div className="mt-2 mb-7 px-7">        
         <div className="py-0">
           <PageContent songs={songs}/>
         </div>

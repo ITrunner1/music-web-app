@@ -29,7 +29,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
     return (
         <motion.div 
             whileHover={{ scale: 1.2 }}
-            style={{ originX: -0.2 }}
+            style={{ originX: 0 }}
             whileTap={{ scale: 1 }}
             onClick={handleClick}
             className="flex items-center gap-x-3 cursor-pointer w-full p-2 rounded-md">

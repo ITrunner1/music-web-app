@@ -59,6 +59,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({icon: Icon, active, href, labe
                     items-center
                     w-[30px]      
                   hover:text-lightcarrot
+                    border-none
                   text-mattewhite
                     transition                
                     py-4       
