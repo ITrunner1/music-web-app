@@ -24,7 +24,7 @@ export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode,
-  setIsLibraryOpen: (isLibraryOpen: boolean) => void,
+  
 }) {  
   const userSongs = await getSongsByUserId();
   return (    

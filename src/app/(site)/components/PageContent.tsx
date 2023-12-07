@@ -1,8 +1,8 @@
 'use client'
 
 import SongItem from "@/components/SongItem";
-import { Song } from "../../../../types";
 import useOnPlay from "@/hooks/useOnPlay";
+import { Song } from "../../../../types";
 
 import { motion } from "framer-motion";
 

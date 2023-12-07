@@ -99,37 +99,31 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                     </motion.div>
                 </div> 
                 <div></div>                   
-                <div className="
-                        text-mattewhite
-                        flex
-                        justify-between
-                        items-center
-                        gap-x-4
-                        ">                            
-                        {user ? (                            
-                            <div className="flex gap-x-4 items-center">
-                                <motion.div 
-                                    whileHover={{ scale: 1.2 }}
-                                    whileTap={{ scale: 0.8 }}
-                                >
-                                    <Button onPress={handleLogout}>                                    
-                                        Log out
-                                    </Button>
-                                </motion.div>
-                                <motion.div
-                                    whileHover={{ scale: 1.2 }}
-                                    whileTap={{ scale: 0.8 }} 
-                                >
-                                    <Avatar
-                                        className="cursor:pointer"
-                                        onClick={() => router.push('/account')}
-                                        isBordered
-                                        radius="sm"
-                                        color="warning"
-                                        src="https://i.ibb.co/jZh9jBd/cfca9c80-5351-4872-bd91-4413ce15ca22.webp">
-                                    </Avatar>
-                                </motion.div>
-                            </div>
+                <div className="text-mattewhite flex justify-between items-center gap-x-4">
+                    {user ? (                            
+                        <div className="flex gap-x-4 items-center">
+                            <motion.div 
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.8 }}
+                            >
+                                <Button onPress={handleLogout}>                                    
+                                    Log out
+                                </Button>
+                            </motion.div>
+                            <motion.div
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.8 }} 
+                            >
+                                <Avatar
+                                    className="cursor:pointer"
+                                    onClick={() => router.push('/account')}
+                                    isBordered
+                                    radius="sm"
+                                    color="warning"
+                                    src="https://i.ibb.co/jZh9jBd/cfca9c80-5351-4872-bd91-4413ce15ca22.webp">
+                                </Avatar>
+                            </motion.div>
+                        </div>
                         ) : (      
                         <div className="flex flex-1 gap-x-4">
                             <motion.div
@@ -149,7 +143,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                                 </Button>
                             </motion.div>
                         </div> 
-                        )}                  
+                    )}                  
                 </div>              
             </div>
             {children}

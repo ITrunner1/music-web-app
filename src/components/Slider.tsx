@@ -1,7 +1,6 @@
 'use client';
 
 import * as NextUiSlider from "@nextui-org/react"
-import { useState } from "react";
 
 interface SliderProps {
     value?: number;  
@@ -27,8 +26,7 @@ const Slider: React.FC<SliderProps> = ({
             classNames={{
                 track: "bg-gray relative grow rounded-fill h-3[3px]",                
             }}
-        >
-            
+        >            
         </NextUiSlider.Slider>
     );
 }

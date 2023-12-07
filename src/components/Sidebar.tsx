@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import { usePathname, useRouter } from 'next/navigation'
 import { FaHeart } from "react-icons/fa";
 import { HiOutlineArrowSmallLeft, HiOutlineArrowSmallRight } from "react-icons/hi2";
@@ -8,14 +9,12 @@ import { FaMicrophoneAlt } from "react-icons/fa";
 import { MdFeaturedPlayList, MdLibraryMusic } from "react-icons/md"
 import { useMemo } from "react";
 import { Divider } from '@nextui-org/react';
-import Image from "next/image";
 
+import { Song } from '../../types';
+import { twMerge } from 'tailwind-merge';
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import usePlayer from '@/hooks/usePlayer';
-import { Song } from '../../types';
-import { twMerge } from 'tailwind-merge';
-
 
 interface SidebarProps { 
     children: React.ReactNode;

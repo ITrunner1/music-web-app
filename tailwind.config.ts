@@ -19,6 +19,7 @@ const config: Config = {
       bluishblack: "#17181C",
       mattewhite: "#F2F3F4",
       lightcarrot: "#FF6600",
+      dangerred: "#FF0E0E",
     },
     extend: {},
   },

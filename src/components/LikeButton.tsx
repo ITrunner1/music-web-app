@@ -5,11 +5,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useSessionContext } from "@supabase/auth-helpers-react";
-import { Button } from "@nextui-org/react";
 
-import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
-
+import useAuthModal from "@/hooks/useAuthModal";
 
 interface LikeButtonProps {
     songId: string;

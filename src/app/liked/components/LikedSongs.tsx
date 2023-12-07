@@ -17,15 +17,8 @@ interface LikedContentProps {
 const LikedContent: React.FC<LikedContentProps> = ({
     songs
 }) => {
-    const router = useRouter();
-    const { isLoading, user } = useUser();
+    const router = useRouter();    
     const onPlay = useOnPlay(songs);
-
-    useEffect(() => {
-        if (!isLoading && !user) {
-            router.replace('/');
-        }
-    }, [isLoading, user, router]);
 
     if (songs.length === 0) {
         return (
@@ -52,7 +45,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
                             data={song}
                         />
                     </div>
-                    <LikeButton songId={song.id} />
+                    <LikeButton songId={song.id} />                    
                 </div>
             ))}
         </motion.div>
