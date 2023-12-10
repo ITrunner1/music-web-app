@@ -117,14 +117,14 @@ const LikeButton: React.FC<LikeButtonProps> = ({
                 ]
             }}       
         >
-        <motion.div 
-            onClick={handleLike}
-            whileHover={{ scale: 1.2 }}                              
-            whileTap={{ scale: 1 }}
-            className="bg-inherit cursor-pointer"
-        >
-            <Icon color={isLiked ? '#FF6600' : '#F2F3F4'} size={25}/>           
-        </motion.div>
+            <motion.div 
+                onClick={handleLike}
+                whileHover={{ scale: 1.2 }}                              
+                whileTap={{ scale: 1 }}
+                className="bg-inherit cursor-pointer"
+            >
+                <Icon color={isLiked ? '#C42330' : '#F2F3F4'} size={25}/>           
+            </motion.div>
         </Tooltip>
     );
 };

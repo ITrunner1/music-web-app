@@ -79,8 +79,8 @@ const Sidebar = ({ children }: SidebarProps) => {
                 width={56}
                 height={56}               
             />
-        <Divider className="h-1 bg-blackgray" />      
-        <div className="">
+            <Divider className="h-1 bg-blackgray" />      
+            <div className="">
                 <Box>
                     <div className="flex flex-col gap-y-4 px-5 py-4">                     
                         {routes.map((item) => (                               
@@ -90,7 +90,7 @@ const Sidebar = ({ children }: SidebarProps) => {
                         ))}                            
                     </div>                
                 </Box> 
-        </div>
+            </div>
         </div>    
         <main className="h-full flex-1 overflow-y-auto py-0 z-10">      
             {children}               
