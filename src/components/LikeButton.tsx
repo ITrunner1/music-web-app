@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useSessionContext } from "@supabase/auth-helpers-react";
+import { Tooltip } from "@nextui-org/react";
 
 import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/useAuthModal";
@@ -84,6 +85,38 @@ const LikeButton: React.FC<LikeButtonProps> = ({
     };
     
     return (
+        <Tooltip                                    
+            placement="top"
+            content={isLiked ? 'Dislike' : 'Like'}
+            delay={0}
+            closeDelay={0}
+            motionProps={{
+                variants: {
+                    exit: {
+                        opacity: 0,
+                        transition: {
+                            duration: 0.1,
+                            ease: "easeIn",
+                        }
+                    },
+                    enter: {
+                        opacity: 1,
+                        transition: {
+                            duration: 0.15,
+                            ease: "easeOut",
+                        }
+                    },
+                },
+            }}
+            classNames={{
+                base: [
+                    "border-none"
+                ],
+                content: [
+                    "bg-inherit border-none text-mattewhite"
+                ]
+            }}       
+        >
         <motion.div 
             onClick={handleLike}
             whileHover={{ scale: 1.2 }}                              
@@ -92,6 +125,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
         >
             <Icon color={isLiked ? '#FF6600' : '#F2F3F4'} size={25}/>           
         </motion.div>
+        </Tooltip>
     );
 };
 

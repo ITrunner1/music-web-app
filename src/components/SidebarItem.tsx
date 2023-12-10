@@ -49,6 +49,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({icon: Icon, active, href, labe
             <motion.div 
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
+              className='border-none shadow-none outline-none'
             >
               <Link
                 href={href}
@@ -58,13 +59,16 @@ const SidebarItem: React.FC<SidebarItemProps> = ({icon: Icon, active, href, labe
                     h-auto
                     items-center
                     w-[30px]      
-                  hover:text-lightcarrot
+                  hover:text-red
                     border-none
+                    shadow-none
+                    outline-none
                   text-mattewhite
                     transition                
-                    py-4       
+                    py-4  
+
                 `,
-                    active && "text-lightcarrot"
+                    active && "text-red"
                 )}
               >
                   <Icon size={36}/>                     

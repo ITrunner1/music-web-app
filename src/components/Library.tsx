@@ -54,7 +54,8 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
             </div>
             <div className="flex flex-col gap-y-2 mt-4 px-3">
                 {songs?.map((item) => (
-                    <div className="flex items-center gap-x-4 w-full ">
+                    <div className="flex items-center">
+                        
                         <div className="flex-1">
                             <MediaItem
                                 onClick={(id: string) => onPlay(id)}
@@ -62,7 +63,7 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
                                 data={item}
                             />
                         </div>  
-                        <div>                  
+                        <div className="right-2">                  
                             <DeleteButton songId={item.id} />
                         </div>
                     </div>

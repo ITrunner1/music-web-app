@@ -22,23 +22,12 @@ const Player = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}           
-            className=" 
-                fixed                                            
-                bottom-0
-                bg-blakishgray
-                text-mattewhite
-                w-full
-                py-2
-                h-[80px]
-                px-4
-                z-30            
-            "
-        >
-            <PlayerContent
-                key={songUrl}
-                song={song}
-                songUrl={songUrl}
-            />
+            className="fixed  bottom-0 px-4 py-2 z-30 h-[80px] w-full bg-darkgray text-mattewhite">
+                <PlayerContent
+                    key={songUrl}
+                    song={song}
+                    songUrl={songUrl}
+                />
         </motion.div>
     );
 };

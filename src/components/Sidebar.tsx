@@ -3,25 +3,23 @@
 import Image from "next/image";
 import { usePathname, useRouter } from 'next/navigation'
 import { FaHeart } from "react-icons/fa";
-import { HiOutlineArrowSmallLeft, HiOutlineArrowSmallRight } from "react-icons/hi2";
+import { HiOutlineArrowSmallLeft  } from "react-icons/hi2";
 import { BsMusicNote, BsCompassFill  } from "react-icons/bs"
-import { FaMicrophoneAlt } from "react-icons/fa";
+import { IoSettings } from "react-icons/io5";
 import { MdFeaturedPlayList, MdLibraryMusic } from "react-icons/md"
 import { useMemo } from "react";
 import { Divider } from '@nextui-org/react';
-
-import { Song } from '../../types';
 import { twMerge } from 'tailwind-merge';
+
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import usePlayer from '@/hooks/usePlayer';
 
 interface SidebarProps { 
     children: React.ReactNode;
-    songs: Song[];
 }
 
-const Sidebar = ({ children, songs }: SidebarProps) => {    
+const Sidebar = ({ children }: SidebarProps) => {    
     const router = useRouter();            
     const pathname = usePathname();
     const player = usePlayer();
@@ -58,17 +56,11 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
             href: '/playlists',
         }, 
         {
-            icon: FaMicrophoneAlt,
-            label: 'Podcasts',
-            active: pathname === '/podcasts',
-            href: '/podcasts',
-        },
-        // {
-        //     icon: HiOutlineArrowSmallRight,
-        //     label: 'Forward',  
-        //     href: '/',         
-        //     onclick: router.forward()
-        // }, 
+            icon: IoSettings,
+            label: 'Settings',
+            active: pathname === '/settings',
+            href: '/settings',
+        },        
         {
             icon: HiOutlineArrowSmallLeft,
             label: 'Back',  
@@ -90,7 +82,7 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
         <Divider className="h-1 bg-blackgray" />      
         <div className="">
                 <Box>
-                    <div className="flex flex-col gap-y-4 px-5 py-4 ">                     
+                    <div className="flex flex-col gap-y-4 px-5 py-4">                     
                         {routes.map((item) => (                               
                             <SidebarItem                                     
                                 key={item.label}
@@ -98,7 +90,7 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
                         ))}                            
                     </div>                
                 </Box> 
-        </div>      
+        </div>
         </div>    
         <main className="h-full flex-1 overflow-y-auto py-0 z-10">      
             {children}               

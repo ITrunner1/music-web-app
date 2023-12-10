@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Song } from "../../types";
 import useLoadImage from "@/hooks/useLoadImage";
 import usePlayer from "@/hooks/usePlayer";
+import { Tooltip } from "@nextui-org/react";
 
 interface MediaItemProps {
     data: Song;
@@ -27,13 +28,13 @@ const MediaItem: React.FC<MediaItemProps> = ({
         return player.setId(data.id)
     }
 
-    return (        
+    return (
         <motion.div 
             whileHover={{ scale: 1.2 }}
             style={{ originX: 0 }}
             whileTap={{ scale: 1 }}
             onClick={handleClick}
-            className="flex gap-x-3 cursor-pointer w-full p-2">
+            className="flex gap-x-3 cursor-pointer p-2 outline-none">
                 <div className="relative min-h-[48px] min-w-[48px]">
                     <Image     
                         fill                

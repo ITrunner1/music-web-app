@@ -106,7 +106,11 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                                 whileHover={{ scale: 1.2 }}
                                 whileTap={{ scale: 0.8 }}
                             >
-                                <Button onPress={handleLogout}>                                    
+                                <Button
+                                    size="lg"
+                                    variant="shadow"                                                     
+                                    className="bg-blackgray"
+                                    onPress={handleLogout}>                                    
                                     Log out
                                 </Button>
                             </motion.div>
@@ -130,7 +134,11 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                                 whileHover={{ scale: 1.2 }}
                                 whileTap={{ scale: 0.8 }}
                             >
-                                <Button onPress={authModal.onOpen}>                                
+                                <Button
+                                    size="lg"
+                                    variant="shadow"                                                     
+                                    className="bg-blackgray"
+                                    onPress={authModal.onOpen}>                                
                                     Sign Up                                                                 
                                 </Button>
                             </motion.div>
@@ -138,7 +146,11 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                                 whileHover={{ scale: 1.2 }}
                                 whileTap={{ scale: 0.8 }}
                             >
-                                <Button onPress={authModal.onOpen}>
+                                <Button 
+                                    size="lg"
+                                    variant="shadow"                                                     
+                                    className="bg-blackgray"
+                                    onPress={authModal.onOpen}>
                                     Log In
                                 </Button>
                             </motion.div>
