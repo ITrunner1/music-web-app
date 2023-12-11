@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Song } from "../../types";
 import useLoadImage from "@/hooks/useLoadImage";
 import usePlayer from "@/hooks/usePlayer";
-import { Tooltip } from "@nextui-org/react";
 
 interface MediaItemProps {
     data: Song;

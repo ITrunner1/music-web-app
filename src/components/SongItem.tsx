@@ -2,8 +2,9 @@
 
 import useLoadImage from "@/hooks/useLoadImage";
 import { Song } from "../../types";
+import { Image } from "@nextui-org/react";
 
-import { Card, CardHeader, CardBody, Image, CardFooter, Button, Tooltip } from "@nextui-org/react"
+import { Card, CardBody, CardFooter, Button, Tooltip } from "@nextui-org/react"
 import { motion } from "framer-motion";
 
 interface SongItemProps { 
@@ -54,14 +55,16 @@ const SongItem: React.FC<SongItemProps> = ({
                 whileHover={{ scale: 1.2 }}            
                 whileTap={{ scale: 1 }}
                 onClick={() => onClick(data.id)}
+                className="outline-none"
             >
-                <Card className="mt-6 cursor-pointer w-[210px] bg-darkgray"> 
+                <Card className="mt-6 cursor-pointer w-[240px] bg-darkgray"> 
                     <CardBody className="items-center">                
                         <Image                    
                             alt="Card background"
-                            className="rounded-xl object-cover"
+                            className="rounded-xl object-cover h-[220px]"
                             src={imagePath || '/images/liked.jpg'}
-                            width={220}
+                            width={210}
+                            height={90}                            
                         />                
                     </CardBody>        
                     <CardFooter className="flex flex-col items-start pt-0 pl-5">                
