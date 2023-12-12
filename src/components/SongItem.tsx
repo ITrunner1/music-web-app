@@ -2,7 +2,7 @@
 
 import useLoadImage from "@/hooks/useLoadImage";
 import { Song } from "../../types";
-import { Image } from "@nextui-org/react";
+import Image from "next/image";
 
 import { Card, CardBody, CardFooter, Button, Tooltip } from "@nextui-org/react"
 import { motion } from "framer-motion";
@@ -64,8 +64,9 @@ const SongItem: React.FC<SongItemProps> = ({
                             className="rounded-xl object-cover h-[220px]"
                             src={imagePath || '/images/liked.jpg'}
                             width={210}
-                            height={90}      
-                            loading="lazy"                                                                           
+                            height={90}
+                            sizes="100vw"                                                           
+                            loading="lazy"                                                                                                      
                         />                
                     </CardBody>        
                     <CardFooter className="flex flex-col items-start pt-0 pl-5">                
