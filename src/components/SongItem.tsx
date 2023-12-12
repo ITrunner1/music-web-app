@@ -59,12 +59,13 @@ const SongItem: React.FC<SongItemProps> = ({
             >
                 <Card className="mt-6 cursor-pointer w-[240px] bg-darkgray"> 
                     <CardBody className="items-center">                
-                        <Image                    
+                        <Image             
                             alt="Card background"
                             className="rounded-xl object-cover h-[220px]"
                             src={imagePath || '/images/liked.jpg'}
                             width={210}
-                            height={90}                            
+                            height={90}      
+                            loading="lazy"                                                                           
                         />                
                     </CardBody>        
                     <CardFooter className="flex flex-col items-start pt-0 pl-5">                
