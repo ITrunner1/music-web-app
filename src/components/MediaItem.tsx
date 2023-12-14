@@ -36,7 +36,8 @@ const MediaItem: React.FC<MediaItemProps> = ({
             className="flex gap-x-3 cursor-pointer p-2 outline-none">
                 <div className="relative min-h-[48px] min-w-[48px]">
                     <Image     
-                        fill                
+                        fill
+                        loading="lazy"                
                         src={imageUrl || "/images/liked.png"}
                         alt="Media Item"
                         className="object-cover"
