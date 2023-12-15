@@ -11,7 +11,7 @@ const Liked = async () => {
             <Header> 
                 <div className="flex flex-col gap-y-2 mt-4 md:mt-0">                  
                     <h1 className="text-mattewhite text-4xl sm:text-5xl lg-7xl font-bold">                    
-                        Liked Songs
+                        Понравившиеся песни
                     </h1>
                 </div>                
             </Header>

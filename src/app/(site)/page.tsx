@@ -11,7 +11,7 @@ export default async function Home() {
       <Header>                   
         <div className="mb-2 text-mattewhite">
           <h1 className="text-4xl sm:text-5xl lg-6xl font-bold">
-            Welcome back
+            Добро пожаловать
           </h1>        
         </div>        
       </Header>

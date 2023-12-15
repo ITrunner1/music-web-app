@@ -116,8 +116,8 @@ const UploadModal = () => {
 
     return (
         <Modal
-            title="Add a song"
-            description="Upload an mp3 file"
+            title="Добавить песню"
+            description="Загрузите mp3 файл"
             isOpen={uploadModal.isOpen}
             onChange={onChange}
         >
@@ -129,17 +129,17 @@ const UploadModal = () => {
                     id="title"
                     disabled={isLoading}
                     {...register('title', { required: true })}
-                    placeholder="Song title"
+                    placeholder="Название песни"
                 />
                  <Input 
                     id="author"
                     disabled={isLoading}
                     {...register('author', { required: true })}
-                    placeholder="Song author"
+                    placeholder="Автора"
                 />
                 <div>
                     <div className="pb-1">
-                        Select a song file
+                        Выберете песню
                     </div>
                     <Input 
                         id="song"
@@ -151,7 +151,7 @@ const UploadModal = () => {
                 </div>
                 <div>
                     <div className="pb-1">
-                        Select an image(webp, less 1MB)
+                        Выберете изображение(формат webp, меньше 1MB)
                     </div>
                     <Input 
                         id="image"
@@ -162,7 +162,7 @@ const UploadModal = () => {
                     />
                 </div>
                 <Button disabled={isLoading} type="submit">
-                    Create
+                    Загрузить
                 </Button>
             </form>
         </Modal>

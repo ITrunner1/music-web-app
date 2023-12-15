@@ -74,7 +74,7 @@ const SongItem: React.FC<SongItemProps> = ({
                             {data.title}
                         </p>
                         <p className="text-gray font-medium">
-                            By {data.author}
+                            Написал {data.author}
                         </p>                
                     </CardFooter>             
                 </Card>

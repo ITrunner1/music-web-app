@@ -111,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                                     variant="shadow"                                                     
                                     className="bg-blackgray"
                                     onPress={handleLogout}>                                    
-                                    Log out
+                                    Выйти
                                 </Button>
                             </motion.div>
                             <motion.div
@@ -139,7 +139,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                                     variant="shadow"                                                     
                                     className="bg-blackgray"
                                     onPress={authModal.onOpen}>                                
-                                    Sign Up                                                                 
+                                    Зарегистрирововаться                                                                 
                                 </Button>
                             </motion.div>
                             <motion.div
@@ -151,7 +151,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                                     variant="shadow"                                                     
                                     className="bg-blackgray"
                                     onPress={authModal.onOpen}>
-                                    Log In
+                                    Войти
                                 </Button>
                             </motion.div>
                         </div> 

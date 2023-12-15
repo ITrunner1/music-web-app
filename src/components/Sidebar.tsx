@@ -27,43 +27,43 @@ const Sidebar = ({ children }: SidebarProps) => {
     const routes = useMemo(() => [
         {
             icon: BsMusicNote,
-            label: 'Music',
+            label: 'Музыка',
             active: pathname === '/',
             href: '/',            
         },
         {
             icon: FaHeart,
-            label: 'Liked',
+            label: 'Понравившиеся',
             active: pathname === '/liked',
             href: '/liked',
         },  
         {
             icon: BsCompassFill,
-            label: 'Search',
+            label: 'Поиск',
             active: pathname === '/search',
             href: '/search',
         },
         {
             icon: MdLibraryMusic,
-            label: 'Library',
+            label: 'Библиотека',
             active: pathname === '/library',
             href: '/library',
         },        
         {
             icon: MdFeaturedPlayList,
-            label: 'Playlists',
+            label: 'Плейлисты',
             active: pathname === '/playlists',
             href: '/playlists',
         }, 
         {
             icon: IoSettings,
-            label: 'Settings',
+            label: 'Настройки',
             active: pathname === '/settings',
             href: '/settings',
         },        
         {
             icon: HiOutlineArrowSmallLeft,
-            label: 'Back',  
+            label: 'Назад',  
             href: '/',
         },
               

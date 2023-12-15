@@ -39,7 +39,7 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
             <div className="flex items-center justify pt-4">           
                     <div className="text-mattewhite inline-flex gap-x-6 px-3 pr-2">                                                                                   
                         <h1 className="text-mattewhite text-2xl sm:text-2xl lg-7xl font-bold">                         
-                            Add song
+                            Добавить песню
                         </h1>                                               
                     </div> 
                     <motion.button 

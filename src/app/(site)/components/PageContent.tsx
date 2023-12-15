@@ -19,7 +19,7 @@ const PageContent: React.FC<PageContentProps> = ({
         return (
             <div className="mb-2 text-mattewhite">
                 <h1 className="text-4xl sm:text-5xl lg-6xl font-bold">
-                    No songs available here.
+                    Нет доступных песен.
                 </h1>        
         </div> 
         )
@@ -27,7 +27,7 @@ const PageContent: React.FC<PageContentProps> = ({
     return (
         <div>
             <h1 className="text-mattewhite text-[24px] font-semibold">
-                Newest songs
+                Новые песни
             </h1>      
             <motion.div 
                 initial={{ opacity: 0, x: 100 }}

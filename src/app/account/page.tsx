@@ -7,7 +7,7 @@ const Account = async () => {
             <Header>
                 <div  className="mb-2 flex flex-col gap-y-6">
                     <h1 className="text-mattewhite text-4xl sm:text-5xl lg-7xl font-bold">
-                        Account Settings
+                        Настройки аккаунта
                     </h1>
                 </div>
             </Header>

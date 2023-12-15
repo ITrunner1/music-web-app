@@ -20,7 +20,7 @@ const Search = async ({ searchParams }: SearchProps) => {
             <Header>
                 <div className="mb-2 flex flex-col gap-y-6">
                     <h1 className="text-mattewhite text-3xl font-semibold">
-                        Search
+                        Поиск
                     </h1>
                     <SearchInput />
                 </div>
